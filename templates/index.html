@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Scraper</title>
+    <!-- Replaced Tailwind CDN with custom stylesheet -->
+    <link rel="stylesheet" href="static/styles.css" />
+  </head>
+  <body>
+    <!-- Removed all Tailwind classes and simplified structure -->
+    <div class="container">
+      <div class="card">
+        <div class="header">
+          <h1>Web Scraper</h1>
+          <p>Enter a URL to scrape content from any website</p>
+        </div>
+
+        <form action="/scrape" method="POST">
+          <div class="form-group">
+            <label for="url">Website URL</label>
+            <input
+              type="url"
+              id="url"
+              name="url"
+              placeholder="https://example.com"
+              required
+            />
+          </div>
+
+          <button type="submit">Start Scraping</button>
+        </form>
+
+        <div class="instructions">
+          <h2>Instructions:</h2>
+          <ul>
+            <li>Enter a valid URL starting with http:// or https://</li>
+            <li>Click "Start Scraping" to begin the process</li>
+            <li>The scraped content will be displayed below</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
