@@ -1,10 +1,46 @@
-# Python-generated files
+# Virtual environments
+env/
+venv/
+.venv/
+
+# Python cache and compiled files
 __pycache__/
-*.py[oc]
+*.py[cod]
+*$py.class
+
+# Logs
+*.log
+*.log.*
+uvicorn.log
+
+# Dependency lockfiles (optional)
+# If you *want* to commit uv.lock you can remove this line.
+uv.lock
+
+# IDE / editor folders
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Unit test / coverage
+.coverage
+.coverage.*
+.pytest_cache/
+htmlcov/
+
+# Distribution / builds
 build/
 dist/
-wheels/
-*.egg-info
+*.egg-info/
 
-# Virtual environments
-.venv
+# Environment variables
+.env
+.env.*
