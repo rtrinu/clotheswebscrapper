@@ -118,6 +118,7 @@ def filter_product_urls(urls: List[str]) -> Dict[str, List[str]]:
         "/dp/",
         "/sku",
         "/style",
+        "/clothing",
     ]
 
     # Common category patterns
@@ -140,6 +141,10 @@ def filter_product_urls(urls: List[str]) -> Dict[str, List[str]]:
         "/her",
         "/female",
         "/w/",
+        "/women-clothing",
+        "/women-dresses",
+        "/women-shirts",
+        "womens-bamboo",
     ]
 
     men_patterns = ["/men", "/mens", "/man", "/male", "/him", "/m/"]
@@ -248,13 +253,24 @@ def filter_product_urls(urls: List[str]) -> Dict[str, List[str]]:
 
 def get_product_urls_only(urls: List[str]) -> List[str]:
     """
-    Convenience function to get only product URLs.
-
-    Args:
-        urls: List of URLs to filter
-
-    Returns:
-        List of URLs that appear to be product pages
+    Return the combined list of URLs that match:
+      - products
+      - categories
+      - women
     """
     categorized = filter_product_urls(urls)
-    return categorized["products"]
+
+    # Merge products, categories, and women URLs into a single list
+    combined = (
+        categorized["products"] + categorized["categories"] + categorized["women"]
+    )
+
+    # Remove duplicates while preserving order
+    seen = set()
+    unique_urls = []
+    for u in combined:
+        if u not in seen:
+            seen.add(u)
+            unique_urls.append(u)
+
+    return unique_urls
